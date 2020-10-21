@@ -14,7 +14,7 @@ public class Squad {
         this.squadNumber = squadNumber;
         this.squadGroup = squadGroup;
     }
-    /* generate constructor argument. However, the id will not be generated since it will be generated and defined in the database */
+    // generate constructor argument. However, the id will not be generated since it will be generated and defined in the database
 
     public String getSquadGender() {
         return squadGroup;

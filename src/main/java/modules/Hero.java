@@ -9,7 +9,7 @@ public class Hero {
     private int squadId;
     private int id;
     /* the property attributes have to be private to avoid being accessed directly without getters and setters or modified, thus, reducing the pesky bugs. */
-
+    //squadId determines the hero's squad id and it will be useful in the interface
     public Hero(String heroName, String heroPower, String heroWeakness, String heroGender, int heroAge, int squadId) {
         this.heroName = heroName;
         this.heroPower = heroPower;

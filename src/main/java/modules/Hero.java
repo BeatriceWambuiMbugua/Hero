@@ -6,15 +6,17 @@ public class Hero {
     private String heroWeakness;
     private String heroGender;
     private int heroAge;
-    private int heroId;
+    private int squadId;
+    private int id;
     /* the property attributes have to be private to avoid being accessed directly without getters and setters or modified, thus, reducing the pesky bugs. */
 
-    public Hero(String heroName, String heroPower, String heroWeakness, String heroGender, int heroAge) {
+    public Hero(String heroName, String heroPower, String heroWeakness, String heroGender, int heroAge, int squadId) {
         this.heroName = heroName;
         this.heroPower = heroPower;
         this.heroWeakness = heroWeakness;
         this.heroGender = heroGender;
         this.heroAge = heroAge;
+        this.squadId = squadId;
         // generate constructor argument. However, the id will not be generated since it will be generated and defined in the database
     }
 
@@ -58,12 +60,22 @@ public class Hero {
         this.heroAge = heroAge;
     }
 
-    public int getHeroId() {
-        return heroId;
+    public int getSquadId() {
+        return squadId;
     }
 
-    public void setHeroId(int heroId) {
-        this.heroId = heroId;
+    public void setSquadId(int squadId) {
+        this.squadId = squadId;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    //Generate setters and getters to access the private variables
 }
 

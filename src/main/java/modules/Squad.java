@@ -5,7 +5,7 @@ public class Squad {
     private String squadPurpose;
     private int squadNumber;
     private String squadGroup;
-    private int squadId;
+    private int id;
     /* the property attributes have to be private to avoid being accessed directly without getters and setters or modified, thus, reducing the pesky bugs. */
 
     public Squad(String squadName, String squadPurpose, int squadNumber, String squadGroup) {
@@ -48,11 +48,11 @@ public class Squad {
         this.squadPurpose = squadPurpose;
     }
 
-    public int getSquadId() {
-        return squadId;
+    public int getId() {
+        return id;
     }
 
-    public void setSquadId(int squadId) {
-        this.squadId = squadId;
+    public void setId(int id) {
+        this.id = id;
     }
 }

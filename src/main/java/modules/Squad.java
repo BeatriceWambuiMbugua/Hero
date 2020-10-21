@@ -4,24 +4,24 @@ public class Squad {
     private String squadName;
     private String squadPurpose;
     private int squadNumber;
-    private String squadGender;
+    private String squadGroup;
     private int squadId;
     /* the property attributes have to be private to avoid being accessed directly without getters and setters or modified, thus, reducing the pesky bugs. */
 
-    public Squad(String squadName, String squadPurpose, int squadNumber, String squadGender) {
+    public Squad(String squadName, String squadPurpose, int squadNumber, String squadGroup) {
         this.squadName = squadName;
         this.squadPurpose = squadPurpose;
         this.squadNumber = squadNumber;
-        this.squadGender = squadGender;
+        this.squadGroup = squadGroup;
     }
-    //generate constructor argument. However, the id will not be generated since it will be generated and defined in the database
+    /* generate constructor argument. However, the id will not be generated since it will be generated and defined in the database */
 
     public String getSquadGender() {
-        return squadGender;
+        return squadGroup;
     }
 
-    public void setSquadGender(String squadGender) {
-        this.squadGender = squadGender;
+    public void setSquadGroup(String squadGroup) {
+        this.squadGroup = squadGroup;
     }
 
     public String getSquadName() {

@@ -8,6 +8,14 @@ public class Squad {
     private int squadId;
     /* the property attributes have to be private to avoid being accessed directly without getters and setters or modified, thus, reducing the pesky bugs. */
 
+    public Squad(String squadName, String squadPurpose, int squadNumber, String squadGender) {
+        this.squadName = squadName;
+        this.squadPurpose = squadPurpose;
+        this.squadNumber = squadNumber;
+        this.squadGender = squadGender;
+    }
+    //generate constructor argument. However, the id will not be generated since it will be generated and defined in the database
+
     public String getSquadGender() {
         return squadGender;
     }
@@ -38,5 +46,13 @@ public class Squad {
 
     public void setSquadPurpose(String squadPurpose) {
         this.squadPurpose = squadPurpose;
+    }
+
+    public int getSquadId() {
+        return squadId;
+    }
+
+    public void setSquadId(int squadId) {
+        this.squadId = squadId;
     }
 }

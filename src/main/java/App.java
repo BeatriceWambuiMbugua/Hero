@@ -30,5 +30,17 @@ public class App {
         get("/addsquad", (request, response) -> {
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
+        //create the post method to add information in the form
+
+        post("/addsquad", (req, res) -> {
+            String name = req.queryParams("name");
+            String purpose= req.queryParams("purpose");
+            String group= req.queryParams("group");
+            int number = Integer.parseInt(req.queryParams("number"));
+            Squad newSquad = new Squad(name, purpose, number, group);
+            squadDAO.addSquad(newSquad);
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

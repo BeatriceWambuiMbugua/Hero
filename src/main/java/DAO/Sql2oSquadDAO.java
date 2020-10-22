@@ -18,7 +18,7 @@ public class Sql2oSquadDAO  implements  SquadDAO{
     @Override
     public List<Squad> getAllSquads() {
         String sql = "SELECT * FROM squads";
-        //error handling using try and catch
+        /* error handling using try and catch */
         try(Connection con = sql2o.open()){
             return con.createQuery(sql)
                     .executeAndFetch(Squad.class);
@@ -27,4 +27,20 @@ public class Sql2oSquadDAO  implements  SquadDAO{
             return null;
         }
     }
+
+    @Override
+    public void addSquad(Squad squad) {
+        String sql = "INSERT INTO squads (squadName, squadPurpose, squadNumber, squadGroup) VALUES (:squadName, :squadPurpose, :squadNumber, :squadGroup)";
+        try (Connection con = sql2o.open()){
+            int id = (int) con.createQuery(sql, true)
+                    .bind(squad)
+                    .executeUpdate()
+                    .getKey();
+            squad.setId(id);
+        }catch(Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
+
 }

@@ -1,4 +1,4 @@
-SET MODE PostgresSQL;
+SET MODE PostgreSQL;
 
 --create two tables for heroes and squads. NB; always use plural
 
@@ -17,6 +17,6 @@ id int PRIMARY KEY auto_increment,
 squadName VARCHAR,
 squadPurpose VARCHAR,
 squadNumber INTEGER,
-squadGroup, VARCHAR,
+squadGroup VARCHAR,
 );
 

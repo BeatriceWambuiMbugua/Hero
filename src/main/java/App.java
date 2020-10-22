@@ -23,9 +23,12 @@ public class App {
         //Declare the Map<> globally to DRY the code
 
         get("/", (request, response) -> {
-            System.out.println(squadDAO.getAllSquads());
             model.put("squads", squadDAO.getAllSquads());
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/addsquad", (request, response) -> {
+            return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

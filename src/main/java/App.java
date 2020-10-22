@@ -2,6 +2,7 @@ import static spark.Spark.*;
 
 import DAO.Sql2oHeroDAO;
 import DAO.Sql2oSquadDAO;
+import modules.Hero;
 import org.sql2o.Connection;
 import modules.Squad;
 import org.sql2o.Sql2o;
@@ -46,6 +47,25 @@ public class App {
             Squad newSquad = new Squad(name, purpose, number, group);
             squadDAO.addSquad(newSquad);
             model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/addhero", (req, res) -> {
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "hero-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/addhero", (req, res) -> {
+            String name = req.queryParams("name");
+            String power= req.queryParams("power");
+            String weakness= req.queryParams("weakness");
+            String gender= req.queryParams("gender");
+            int age = Integer.parseInt(req.queryParams("age"));
+            int squadId = Integer.parseInt(req.queryParams("squad"));
+            Hero newHero= new Hero(name, power, weakness, gender, age, squadId);
+            heroDAO.addHero(newHero);
+            model.put("squads", squadDAO.getAllSquads());
+            model.put("heroes", heroDAO.getAllHeroes());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
     }

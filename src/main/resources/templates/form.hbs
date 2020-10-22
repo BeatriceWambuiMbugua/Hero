@@ -1,5 +1,30 @@
+{{#partial "header"}}
+    <h1>Welcome to Comic-con</h1>
+{{/partial}}
 {{#partial "content"}}
-    <h1>
-    </h1>
+    <div class="container">
+        <h5>Add a Squad</h5>
+        <hr>
+        <form method="Post" action="/addsquad">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Squad Name">
+            </div>
+            <div class="form-group">
+                <label for="cause">Purpose</label>
+                <input type="text" class="form-control" id="purpose" name="purpose" placeholder="Squad Purpose">
+            </div>
+            <div class="form-group">
+                <label for="size">Number</label>
+                <input type="number" class="form-control" id="number" name="number" placeholder="Squad Number">
+            </div>
+            <div class="form-group">
+                <label for="size">Group</label>
+                <input type="number" class="form-control" id="group" name="group" placeholder="Squad Group ie. Marvel">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {{/partial}}
 {{> layout.hbs}}

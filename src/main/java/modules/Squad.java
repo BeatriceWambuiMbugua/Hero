@@ -16,7 +16,7 @@ public class Squad {
     }
     // generate constructor argument. However, the id will not be generated since it will be generated and defined in the database
 
-    public String getSquadGender() {
+    public String getSquadGroup() {
         return squadGroup;
     }
 

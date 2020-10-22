@@ -1,5 +1,8 @@
 {{#partial "content"}}
-    <h1>
-    </h1>
+    {{#if squads}}
+        {{#each squads}}
+            <p>{{squadName}}</p>
+        {{/each}}
+    {{/if}}
 {{/partial}}
 {{> layout.hbs}}

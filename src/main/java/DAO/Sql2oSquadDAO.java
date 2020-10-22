@@ -32,11 +32,9 @@ public class Sql2oSquadDAO  implements  SquadDAO{
     public void addSquad(Squad squad) {
         String sql = "INSERT INTO squads (squadName, squadPurpose, squadNumber, squadGroup) VALUES (:squadName, :squadPurpose, :squadNumber, :squadGroup)";
         try (Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql, true)
+            con.createQuery(sql)
                     .bind(squad)
-                    .executeUpdate()
-                    .getKey();
-            squad.setId(id);
+                    .executeUpdate();
         }catch(Sql2oException ex){
             System.out.println(ex);
         }

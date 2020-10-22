@@ -22,12 +22,12 @@ public class App {
         Map<String, Object> model = new HashMap<>();
         //Declare the Map<> globally to DRY the code
 
-        get("/", (request, response) -> {
+        get("/", (req, res) -> {
             model.put("squads", squadDAO.getAllSquads());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/addsquad", (request, response) -> {
+        get("/addsquad", (req, res) -> {
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
         //create the post method to add information in the form
@@ -35,8 +35,8 @@ public class App {
         post("/addsquad", (req, res) -> {
             String name = req.queryParams("name");
             String purpose= req.queryParams("purpose");
-            String group= req.queryParams("group");
             int number = Integer.parseInt(req.queryParams("number"));
+            String group= req.queryParams("group");
             Squad newSquad = new Squad(name, purpose, number, group);
             squadDAO.addSquad(newSquad);
             model.put("squads", squadDAO.getAllSquads());

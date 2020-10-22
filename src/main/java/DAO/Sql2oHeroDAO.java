@@ -31,9 +31,11 @@ public class Sql2oHeroDAO implements HeroDAO{
     public void addHero(Hero hero) {
      String sql = "INSERT INTO heroes (heroName, heroPower, heroWeakness, heroGender, heroAge, squadId) VALUES (:heroName, :heroPower, :heroWeakness, :heroGender, :heroAge, :squadId)";
      try (Connection con = sql2o.open()){
-         con.createQuery(sql)
+        int id = (int) con.createQuery(sql, true)
          .bind(hero)
-                 .executeUpdate();
+                 .executeUpdate()
+                .getKey();
+        hero.setId(id);
      }catch(Sql2oException ex){
          System.out.println(ex);
      }

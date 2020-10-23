@@ -1,8 +1,10 @@
 
 {{#partial "content"}}
     {{#if editSquad}}
-        <div class="container">
-            <h5>Edit a Squad</h5>
+        <div class="data-image">
+        </div>
+        <div class="container" id="data2">
+            <h5 id="data3">Edit a Squad</h5>
             <hr>
             <form method="Post" action="/editsquad/{{squad.id}}">
                 <div class="form-group">
@@ -21,7 +23,7 @@
                     <label for="group">Group</label>
                     <input type="text" class="form-control" id="group" name="group" placeholder="Squad Group ie. Marvel" value="{{squad.squadGroup}}">
                 </div>
-                <button type="submit" class="btn btn-danger">Update</button>
+                <button type="submit" class="btn btn-danger" id="data3">Update</button>
             </form>
         </div>
     {{/if}}

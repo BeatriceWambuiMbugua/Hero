@@ -1,25 +1,31 @@
 {{#partial "content"}}
     {{#if hero}}
-    <div class="container">
+        <div class="data-image">
+        </div>
+    <div class="container" id="data">
+     <div class="container" id="data9">
+         <div class="card text-white text-center mb-3" id="data8">
+             <div class="card-header">
+                 <p>Hero's Name: {{hero.heroName}}</p>
+             </div>
+             <div class="card-body mb-3" id="data8">
+                 <ul class="list-group list-group-flush">
+                     <li class="list-group-item" id="data8">Hero's Power: {{hero.heroPower}}</li>
+                     <li class="list-group-item" id="data8">Hero's Weakness: {{hero.heroWeakness}}</li>
+                     <li class="list-group-item" id="data8">Hero's Gender: {{hero.heroGender}}</li>
+                     <li class="list-group-item" id="data8">Hero's Age: {{hero.heroAge}}</li>
+                     {{#if squad}}
+                         <li class="list-group-item" id="data8">Squad's Name: {{squad.squadName}}</li>
+                     {{/if}}
+                 </ul>
+             </div>
+         </div>
+         <div id="data6">
+             <a href="/deletehero/{{hero.id}}" class="btn btn-danger">Remove</a>
+             <a href="/edithero/{{hero.id}}" class="btn btn-danger">Update</a>
+         </div>
+     </div>
 
-            <div class="card text-white bg-dark mb-3" style="width: 18rem;">
-                <div class="card-header">
-                    <p>Hero's Name: {{hero.heroName}}</p>
-                </div>
-                <div class="card-body bg-dark mb-3">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-dark">Hero's Power: {{hero.heroPower}}</li>
-                        <li class="list-group-item bg-dark">Hero's Weakness: {{hero.heroWeakness}}</li>
-                        <li class="list-group-item bg-dark">Hero's Gender: {{hero.heroGender}}</li>
-                        <li class="list-group-item bg-dark">Hero's Age: {{hero.heroAge}}</li>
-                        {{#if squad}}
-                            <li class="list-group-item bg-dark">Squad's Name: {{squad.squadName}}</li>
-                        {{/if}}
-                    </ul>
-                </div>
-            </div>
-        <a href="/deletehero/{{hero.id}}" class="btn btn-danger">Remove</a>
-        <a href="/edithero/{{hero.id}}" class="btn btn-danger">Update</a>
     </div>
     {{/if}}
 

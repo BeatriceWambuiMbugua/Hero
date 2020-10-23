@@ -10,4 +10,6 @@ public interface SquadDAO {
 // adding data to the squad
     void addSquad(Squad squad);
 
+    Squad getSquadById(int id);
+
 }

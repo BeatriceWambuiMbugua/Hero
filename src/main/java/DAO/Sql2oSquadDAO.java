@@ -1,5 +1,6 @@
 package DAO;
 
+import modules.Hero;
 import modules.Squad;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -32,12 +33,27 @@ public class Sql2oSquadDAO  implements  SquadDAO{
     public void addSquad(Squad squad) {
         String sql = "INSERT INTO squads (squadName, squadPurpose, squadNumber, squadGroup) VALUES (:squadName, :squadPurpose, :squadNumber, :squadGroup)";
         try (Connection con = sql2o.open()){
-            con.createQuery(sql)
+            int id = (int) con.createQuery(sql, true)
                     .bind(squad)
-                    .executeUpdate();
+                    .executeUpdate()
+                    .getKey();
+            squad.setId(id);
         }catch(Sql2oException ex){
             System.out.println(ex);
         }
+    }
+
+    @Override
+    public Squad getSquadById(int id) {
+        String sql = "SELECT * squads WHERE id=: id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Squad.class);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+        return null;
     }
 
 

@@ -4,6 +4,7 @@
             {{#if squads}}
                 {{#each squads}}
                     <p>{{squadName}}</p>
+                    <a href="/squads/{{id}}" class="btn btn-info">Information</a>
                 {{/each}}
             {{/if}}
         </div>
@@ -11,6 +12,7 @@
             {{#if heroes}}
                 {{#each heroes}}
                     <p>{{heroName}}</p>
+                <a href="/heroes/{{id}}" class="btn btn-info">Information</a>
                 {{/each}}
             {{/if}}
         </div>

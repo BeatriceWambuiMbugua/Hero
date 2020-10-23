@@ -40,4 +40,17 @@ public class Sql2oHeroDAO implements HeroDAO{
          System.out.println(ex);
      }
     }
+
+    @Override
+    public Hero getHeroById(int id) {
+        String sql = "SELECT * heroes WHERE id=: id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Hero.class);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
 }

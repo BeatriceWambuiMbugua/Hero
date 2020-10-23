@@ -9,4 +9,7 @@ public interface HeroDAO {
     List<Hero> getAllHeroes();
 
     void addHero(Hero hero);
+
+    //create a way to get a specific hero through id
+    Hero getHeroById(int id);
 }

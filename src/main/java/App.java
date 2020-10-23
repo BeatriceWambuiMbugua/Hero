@@ -68,5 +68,10 @@ public class App {
             model.put("heroes", heroDAO.getAllHeroes());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+//        get("/heroes/:id", (request, response) -> {
+//            int id = Integer.parseInt(request.queryParams("id"));
+//
+//        });
     }
 }

@@ -12,4 +12,8 @@ public interface HeroDAO {
 
     //create a way to get a specific hero through id
     Hero getHeroById(int id);
+
+    //create a delete method for a hero
+
+    void deleteHeroById(int id);
 }

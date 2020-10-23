@@ -82,5 +82,21 @@ public class App {
             model.put("squad", squadDAO.getSquadById(id));
             return new ModelAndView(model, "squad-information.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/deletehero/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+            heroDAO.deleteHeroById(id);
+            model.put("heroes", heroDAO.getAllHeroes());
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/deletesquad/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+            squadDAO.deleteSquadById(id);
+            model.put("heroes", heroDAO.getAllHeroes());
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

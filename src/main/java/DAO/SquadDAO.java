@@ -15,4 +15,10 @@ public interface SquadDAO {
 
     List<Hero> getSquadsHeroesById(int id);
 
+    //create a delete method for squad
+
+    void deleteSquadById(int id);
+
+
+
 }

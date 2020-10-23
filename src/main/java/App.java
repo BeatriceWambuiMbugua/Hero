@@ -121,5 +121,23 @@ public class App {
             model.put("hero", heroDAO.getHeroById(id));
             return new ModelAndView(model, "hero-information.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/editsquad/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+            model.put("editSquad", true);
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "update-squad.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/editsquad/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+            String name = req.queryParams("name");
+            String purpose= req.queryParams("purpose");
+            int number = Integer.parseInt(req.queryParams("number"));
+            String group= req.queryParams("group");
+            squadDAO.updateSquad(id, name, purpose, number, group);
+            model.put("squad", squadDAO.getSquadById(id));
+            return new ModelAndView(model, "squad-information.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

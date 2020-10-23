@@ -19,4 +19,8 @@ public interface SquadDAO {
 
     void deleteSquadById(int id);
 
+    //create update method for squad
+
+    void updateSquad(int id, String name, String purpose, int number, String group);
+
 }

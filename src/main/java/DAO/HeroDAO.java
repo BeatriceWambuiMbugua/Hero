@@ -16,4 +16,8 @@ public interface HeroDAO {
     //create a delete method for a hero
 
     void deleteHeroById(int id);
+
+    //create update method for hero
+
+    void updateHero(int id, String name, String power, String weakness, String gender, int age, int squadId);
 }

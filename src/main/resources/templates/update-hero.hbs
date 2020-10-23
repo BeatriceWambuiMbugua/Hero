@@ -1,0 +1,44 @@
+{{#partial "content"}}
+
+    {{#if editHero}}
+        <div class="container">
+            <h5>Edit a Hero</h5>
+            <hr>
+            <form method="Post" action="/edithero/{{hero.id}}">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Hero's Name" value="{{hero.heroName}}">
+                </div>
+                <div class="form-group">
+                    <label for="power">Power</label>
+                    <input type="text" class="form-control" id="power" name="power" placeholder="Hero's Power" value="{{hero.heroPower}}">
+                </div>
+                <div class="form-group">
+                    <label for="weakness">Weakness</label>
+                    <input type="text" class="form-control" id="weakness" name="weakness" placeholder="Hero's Weakness" value="{{hero.heroWeakness}}">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" class="form-control" id="gender" name="gender" placeholder="Hero's Gender" value="{{hero.heroGender}}">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Hero's Age" value="{{hero.heroAge}}">
+                </div>
+                <div class="form-group">
+                    <label for="squad">Squad</label>
+                    <select class="form-control" id="squad" name="squad" required>
+                        {{#if squads}}
+                            {{#each squads}}
+                                <option value="{{id}}">{{squadName}}</option>
+                            {{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

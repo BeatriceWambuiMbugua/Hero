@@ -19,6 +19,4 @@ public interface SquadDAO {
 
     void deleteSquadById(int id);
 
-
-
 }

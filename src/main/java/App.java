@@ -98,5 +98,14 @@ public class App {
             model.put("squads", squadDAO.getAllSquads());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/edithero/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+
+            model.put("editHero", true);
+            model.put("hero", heroDAO.getHeroById(id));
+            model.put("squads", squadDAO.getAllSquads());
+            return new ModelAndView(model, "update-hero.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

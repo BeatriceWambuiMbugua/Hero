@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-
+        staticFileLocation("/public");
         String connectionString = "jdbc:h2:~/Hero.db;INIT=RUNSCRIPT from 'classpath:db/createtables.sql'";
         Connection con;
         Sql2o sql2o = new Sql2o(connectionString, "", "");
@@ -71,8 +71,10 @@ public class App {
 
         get("/heroes/:id", (req, res) -> {
             int id = Integer.parseInt(req.params("id"));
-//            Hero hero = heroDAO.getHeroById(id);
+            Hero hero = heroDAO.getHeroById(id);
+            Squad squad = squadDAO.getSquadById(hero.getSquadId());
             model.put("hero", heroDAO.getHeroById(id));
+            model.put("squad", squad);
             return new ModelAndView(model, "hero-information.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -101,11 +103,23 @@ public class App {
 
         get("/edithero/:id", (req, res) ->{
             int id = Integer.parseInt(req.params("id"));
-
             model.put("editHero", true);
             model.put("hero", heroDAO.getHeroById(id));
             model.put("squads", squadDAO.getAllSquads());
             return new ModelAndView(model, "update-hero.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/edithero/:id", (req, res) ->{
+            int id = Integer.parseInt(req.params("id"));
+            String name = req.queryParams("name");
+            String power= req.queryParams("power");
+            String weakness= req.queryParams("weakness");
+            String gender= req.queryParams("gender");
+            int age = Integer.parseInt(req.queryParams("age"));
+            int squadId = Integer.parseInt(req.queryParams("squad"));
+            heroDAO.updateHero(id, name, power, weakness, gender, age, squadId);
+            model.put("hero", heroDAO.getHeroById(id));
+            return new ModelAndView(model, "hero-information.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

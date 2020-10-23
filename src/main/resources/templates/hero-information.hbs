@@ -12,6 +12,9 @@
                         <li class="list-group-item bg-dark">Hero's Weakness: {{hero.heroWeakness}}</li>
                         <li class="list-group-item bg-dark">Hero's Gender: {{hero.heroGender}}</li>
                         <li class="list-group-item bg-dark">Hero's Age: {{hero.heroAge}}</li>
+                        {{#if squad}}
+                            <li class="list-group-item bg-dark">Squad's Name: {{squad.squadName}}</li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>

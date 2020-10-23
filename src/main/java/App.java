@@ -69,9 +69,18 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/heroes/:id", (request, response) -> {
-//            int id = Integer.parseInt(request.queryParams("id"));
-//
-//        });
+        get("/heroes/:id", (req, res) -> {
+            int id = Integer.parseInt(req.params("id"));
+//            Hero hero = heroDAO.getHeroById(id);
+            model.put("hero", heroDAO.getHeroById(id));
+            return new ModelAndView(model, "hero-information.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id", (req, res) -> {
+            int id = Integer.parseInt(req.params("id"));
+//            Hero hero = heroDAO.getHeroById(id);
+            model.put("squad", squadDAO.getSquadById(id));
+            return new ModelAndView(model, "squad-information.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

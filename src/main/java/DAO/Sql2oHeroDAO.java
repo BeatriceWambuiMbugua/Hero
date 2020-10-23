@@ -43,7 +43,7 @@ public class Sql2oHeroDAO implements HeroDAO{
 
     @Override
     public Hero getHeroById(int id) {
-        String sql = "SELECT * heroes WHERE id=: id";
+        String sql = "SELECT * FROM heroes WHERE id=:id";
         try (Connection con = sql2o.open()){
             return con.createQuery(sql)
                     .addParameter("id", id)

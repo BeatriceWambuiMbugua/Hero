@@ -1,24 +1,42 @@
 {{#partial "content"}}
 
-    <div class="container row">
-        <div class="col-md-4">
-            {{#if squad}}
-                <p>{{squad.squadName}}</p>
-                <p>{{squad.squadPurpose}}</p>
-                <p>{{squad.squadNumber}}</p>
-                <p>{{squad.squadGroup}}</p>
-                <a href="/deletesquad/{{squad.id}}" class="btn btn-danger">Delete</a>
-            {{/if}}
-        </div>
-        <div class="col-md-8">
-            {{#if heroes}}
-                {{#each heroes}}
-                    <p>{{heroName}}</p>
-                    <a href="/heroes/{{id}}" class="btn btn-info">Details</a>
-                {{/each}}
-            {{/if}}
-        </div>
+<!--    <div class="container row">-->
+<!--        <div class="col-md-4">-->
+<!--            {{#if squad}}-->
+<!--                <p>{{squad.squadName}}</p>-->
+<!--                <p>{{squad.squadPurpose}}</p>-->
+<!--                <p>{{squad.squadNumber}}</p>-->
+<!--                <p>{{squad.squadGroup}}</p>-->
+<!--                <a href="/deletesquad/{{squad.id}}" class="btn btn-danger">Delete</a>-->
+<!--            {{/if}}-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="col-md-8">&ndash;&gt;-->
+<!--&lt;!&ndash;            {{#if heroes}}&ndash;&gt;-->
+<!--&lt;!&ndash;                {{#each heroes}}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <p>{{heroName}}</p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a href="/heroes/{{id}}" class="btn btn-info">Details</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                {{/each}}&ndash;&gt;-->
+<!--&lt;!&ndash;            {{/if}}&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--    </div>-->
+    {{#if squad}}
+    <div class="container">
+
+            <div class="card text-white bg-dark mb-3" style="width: 18rem;">
+                <div class="card-header">
+                    <p>Squad's Name: {{squad.squadName}}</p>
+                </div>
+                <div class="card-body bg-dark mb-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-dark">Squad's Purpose: {{squad.squadPurpose}}</li>
+                        <li class="list-group-item bg-dark">Squad's Number: {{squad.squadNumber}}</li>
+                        <li class="list-group-item bg-dark">Squad's Group: {{squad.squadGroup}}</li>
+                    </ul>
+                </div>
+
+            </div>
     </div>
+    {{/if}}
 
 {{/partial}}
 

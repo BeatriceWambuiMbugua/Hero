@@ -45,7 +45,7 @@ public class Sql2oSquadDAO  implements  SquadDAO{
 
     @Override
     public Squad getSquadById(int id) {
-        String sql = "SELECT * squads WHERE id=: id";
+        String sql = "SELECT * FROM squads WHERE id=:id";
         try (Connection con = sql2o.open()){
             return con.createQuery(sql)
                     .addParameter("id", id)

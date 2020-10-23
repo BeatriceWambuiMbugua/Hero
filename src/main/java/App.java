@@ -78,7 +78,7 @@ public class App {
 
         get("/squads/:id", (req, res) -> {
             int id = Integer.parseInt(req.params("id"));
-//            Hero hero = heroDAO.getHeroById(id);
+            model.put("heroes", squadDAO.getSquadsHeroesById(id));
             model.put("squad", squadDAO.getSquadById(id));
             return new ModelAndView(model, "squad-information.hbs");
         }, new HandlebarsTemplateEngine());

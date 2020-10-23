@@ -1,5 +1,6 @@
 package DAO;
 
+import modules.Hero;
 import modules.Squad;
 
 import java.util.List;
@@ -11,5 +12,7 @@ public interface SquadDAO {
     void addSquad(Squad squad);
 
     Squad getSquadById(int id);
+
+    List<Hero> getSquadsHeroesById(int id);
 
 }

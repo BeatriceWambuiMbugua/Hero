@@ -56,5 +56,18 @@ public class Sql2oSquadDAO  implements  SquadDAO{
         return null;
     }
 
+    @Override
+    public List<Hero> getSquadsHeroesById(int id) {
+        String sql = "SELECT * FROM heroes WHERE squadId=:id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Hero.class);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+
 
 }

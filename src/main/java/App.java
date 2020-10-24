@@ -9,18 +9,28 @@ import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
+
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/Hero.db;INIT=RUNSCRIPT from 'classpath:db/createtables.sql'";
+        String connectionString = "jdbc:postgresql://ec2-34-234-185-150.compute-1.amazonaws.com:5432/d61mb4m8jfijlp";
+        Sql2o sql2o = new Sql2o(connectionString, "zbepqrskhdhkkg", "ee3dfaaaa726715c0f7bfa2a6d72051aa71da557e4109caaf46c05344be8c250");
+//        String connectionString = "jdbc:h2:~/Hero.db;INIT=RUNSCRIPT from 'classpath:db/createtables.sql'";
         Connection con;
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+//        Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oSquadDAO squadDAO = new Sql2oSquadDAO(sql2o);
         Sql2oHeroDAO heroDAO = new Sql2oHeroDAO(sql2o);
         Map<String, Object> model = new HashMap<>();

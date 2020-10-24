@@ -1,0 +1,39 @@
+{{#partial "content"}}
+    {{#if hero}}
+        <div class="data-image"></div>
+    <div class="container" id="data">
+     <div class="container" id="data9">
+             <div class="card text-white text-center mb-3" id="data8">
+                 <div class="card-header">
+                     <p>Hero's Name: {{hero.heroName}}</p>
+                 </div>
+                 <div class="card-body mb-3" id="data8">
+                     <ul class="list-group list-group-flush">
+                         <li class="list-group-item" id="data8">Hero's Power: {{hero.heroPower}}</li>
+                         <li class="list-group-item" id="data8">Hero's Weakness: {{hero.heroWeakness}}</li>
+                         <li class="list-group-item" id="data8">Hero's Gender: {{hero.heroGender}}</li>
+                         <li class="list-group-item" id="data8">Hero's Age: {{hero.heroAge}}</li>
+                         {{#if squad}}
+                             <li class="list-group-item" id="data8">Squad's Name: {{squad.squadName}}</li>
+                         {{/if}}
+                     </ul>
+                 </div>
+             </div>
+         </div>
+         <div id="data6">
+             <a href="/deletehero/{{hero.id}}" class="btn btn-danger">Remove</a>
+             <a href="/edithero/{{hero.id}}" class="btn btn-danger">Update</a>
+         </div>
+     </div>
+    {{/if}}
+{{/partial}}
+<!--footer-->
+{{#partial "footer"}}
+    <footer>
+        <hr>
+        <p> &copy; Copyright 2020 </p>
+        <p>Author: Beatrice Wambui Mbugua </p>
+        <p>Email: <a href="#">wambuimbeatrice@gmail.com</a></p>
+    </footer>
+{{/partial}}
+{{> layout.hbs}}

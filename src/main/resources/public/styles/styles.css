@@ -1,4 +1,7 @@
-
+body{
+font-family: 'Tangerine', cursive;
+font-size: 30px;
+}
 .data-image{
 background-image: url("/images/background.jpg");
 background-position: fixed;
@@ -23,6 +26,7 @@ align-items: center;
 text-align: center;
 margin-top: auto;
 margin-bottom: auto;
+font-size: 20px;
 }
 #data2{
 position: absolute;
@@ -32,6 +36,7 @@ transform: translate(-50%, -50%);
 margin-top: auto;
 margin-bottom: auto;
 width: 50%;
+font-size: 20px;
 }
 #data3{
 text-align: center;
@@ -76,7 +81,15 @@ color: white;
 .dropdown-menu #data11{
 color: black;
 }
-
+footer{
+text-align: center;
+padding: 2px;
+background-color: #cb997e;
+color: black;
+font-family: 'Tangerine', cursive;
+font-weight: bold;
+font-size: 13px;
+}
 
 
 

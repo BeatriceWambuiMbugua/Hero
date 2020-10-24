@@ -69,6 +69,18 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/heroes", (req, res) -> {
+            List<Hero> hero = heroDAO.getAllHeroes();
+            model.put("hero", hero);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads", (req, res) -> {
+            List<Squad> squad = squadDAO.getAllSquads();
+            model.put("squad", squad);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/heroes/:id", (req, res) -> {
             int id = Integer.parseInt(req.params("id"));
             Hero hero = heroDAO.getHeroById(id);

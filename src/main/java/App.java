@@ -26,8 +26,11 @@ public class App {
 
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://ec2-34-234-185-150.compute-1.amazonaws.com:5432/d61mb4m8jfijlp";
+      String connectionString = "jdbc:postgresql://ec2-34-234-185-150.compute-1.amazonaws.com:5432/d61mb4m8jfijlp";
+        //String connectionString = "jdbc:postgresql://localhost:5432/hero";
+
         Sql2o sql2o = new Sql2o(connectionString, "zbepqrskhdhkkg", "ee3dfaaaa726715c0f7bfa2a6d72051aa71da557e4109caaf46c05344be8c250");
+        //Sql2o sql2o = new Sql2o(connectionString, "moringa", "Access");
 //        String connectionString = "jdbc:h2:~/Hero.db;INIT=RUNSCRIPT from 'classpath:db/createtables.sql'";
         Connection con;
 //        Sql2o sql2o = new Sql2o(connectionString, "", "");

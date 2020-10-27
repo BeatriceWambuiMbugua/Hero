@@ -6,6 +6,10 @@ An app that allows you to recruit a well-balanced team of superheroes (or any ot
 
 Beatrice Wambui Mbugua
 
+# LiveLink
+
+https://sheroine.herokuapp.com/
+
 # Technologies Used
 
 1. JAVA

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="modules.SquadTest" time="0.012" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="modules.SquadTest" time="0.009" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.8+10"/>
@@ -62,12 +62,12 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="modules.SquadTest" name="testGetSquadName" time="0.011"/>
+  <testcase classname="modules.SquadTest" name="testGetSquadName" time="0.009"/>
   <testcase classname="modules.SquadTest" name="testGetSquadNumber" time="0"/>
   <testcase classname="modules.SquadTest" name="testGetSquadGroup" time="0"/>
   <testcase classname="modules.SquadTest" name="testSetSquadName" time="0"/>
   <testcase classname="modules.SquadTest" name="testSetSquadGroup" time="0"/>
   <testcase classname="modules.SquadTest" name="testSetSquadNumber" time="0"/>
   <testcase classname="modules.SquadTest" name="testGetSquadPurpose" time="0"/>
-  <testcase classname="modules.SquadTest" name="testSetSquadPurpose" time="0.001"/>
+  <testcase classname="modules.SquadTest" name="testSetSquadPurpose" time="0"/>
 </testsuite>
